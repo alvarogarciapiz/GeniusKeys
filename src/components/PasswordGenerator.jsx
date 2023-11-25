@@ -46,7 +46,7 @@ function PasswordGenerator() {
                     <FontAwesomeIcon icon={faCopy} />
                 </button>
             </div>
-            <button className='buttonGenerate' type="button" onClick={generatePassword}>Generar Contraseña</button>
+            <button className='buttonGenerate' type="button" onClick={generatePassword}>Generate password</button>
             <form>
                 <label style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '5px' }}>
                     <input type="checkbox" checked={useUppercase} onChange={e => setUseUppercase(e.target.checked)} />
