@@ -39,7 +39,7 @@ function PasswordGenerator() {
         <div className='main'>
             <h1 className='title'>GeniusKeys 🔐</h1>
             <h2 className='subtitle'>Fortify Your Digital Realm: Passwords Crafted for Strength.</h2>
-            <div>
+            <div className='password-container'>
                 <input type="text" value={password} readOnly className='password' />
                 <button className='buttonCopy' type="button" onClick={() => navigator.clipboard.writeText(password)}>
                     <FontAwesomeIcon icon={faCopy} />
