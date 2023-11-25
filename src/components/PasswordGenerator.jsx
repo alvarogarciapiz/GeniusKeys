@@ -8,7 +8,8 @@ function PasswordGenerator() {
     const [useLowercase, setUseLowercase] = useState(true);
     const [useNumbers, setUseNumbers] = useState(true);
     const [useSpecialChars, setUseSpecialChars] = useState(true);
-    const [length, setLength] = useState(16);
+    const [show, setShow] = useState(false)
+    const [length, setLength] = useState(18);
     const [password, setPassword] = useState('');
 
 
@@ -40,35 +41,42 @@ function PasswordGenerator() {
             <h1 className='title'>GeniusKeys 🔐</h1>
             <h2 className='subtitle'>Fortify Your Digital Realm: Passwords Crafted for Strength.</h2>
             <div className='password-container'>
-                <input type="text" value={password} readOnly className='password' />
+            <input type={show ? "password" : "text"} value={password} readOnly className='password'/>
                 <button className='buttonCopy' type="button" onClick={() => navigator.clipboard.writeText(password)}>
                     <FontAwesomeIcon icon={faCopy} />
                 </button>
             </div>
             <button className='buttonGenerate' type="button" onClick={generatePassword}>Generar Contraseña</button>
             <form>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '5px' }}>
                     <input type="checkbox" checked={useUppercase} onChange={e => setUseUppercase(e.target.checked)} />
-                    Incluir mayúsculas
+                    Uppercase letters
                 </label>
                 <br />
-                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '5px' }}>
                     <input type="checkbox" checked={useLowercase} onChange={e => setUseLowercase(e.target.checked)} />
-                    Incluir minúsculas
+                    Lowercase letters
                 </label>
                 <br />
-                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '5px' }}>
                     <input type="checkbox" checked={useNumbers} onChange={e => setUseNumbers(e.target.checked)} />
-                    Incluir números
+                    Numbers
                 </label>
                 <br />
-                <label style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '5px' }}>
                     <input type="checkbox" checked={useSpecialChars} onChange={e => setUseSpecialChars(e.target.checked)} />
-                    Caracteres especiales
+                    Special characters
                 </label>
                 <br />
+
+                <label style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '5px' }}>
+                    <input type="checkbox" checked={show} onChange={e => setShow(e.target.checked)} />
+                    Hide password
+                </label>
+                <br />
+
                 <label>
-                    Longitud:
+                    Length:
                     <input type="number" value={length} onChange={e => setLength(e.target.value)} />
                 </label>
             </form>
