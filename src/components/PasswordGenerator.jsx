@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import '../../src/styles/PasswordGenerator.css';
+import '../styles/PasswordGenerator.css'
 
 function PasswordGenerator() {
     const [useUppercase, setUseUppercase] = useState(true);
